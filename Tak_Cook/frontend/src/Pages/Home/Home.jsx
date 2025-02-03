@@ -158,7 +158,7 @@ const Home = () => {
                         <div key={recipe._id} className='recipe'>
                             <Link to={`/recipe/${recipe._id}`}>
                                 <h3>{recipe.title}</h3>
-                                <img className='various'src={`http://localhost:3003${recipe.image}`} alt={recipe.title} />
+                                <img className='various'src={`https://tak-cook-back.vercel.app/${recipe.image}`} alt={recipe.title} />
                                 
                                    
                                

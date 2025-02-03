@@ -21,7 +21,7 @@ const Recipe = () => {
     //-------------------------recuperation de la recette dans le backend
     const getRecipe = async () => {
         try {
-            const response = await fetch(`http://localhost:3003/recipes/${id}`);
+            const response = await fetch(`https://tak-cook-back.vercel.app/recipes/${id}`);
 
             const data = await response.json();
             // console.log("Données récupérées:", data);
@@ -64,7 +64,7 @@ const Recipe = () => {
             <h1>{recipe.title}</h1>
             <p>{recipe.description}</p>
             <div>
-                <img src={`http://localhost:3003${recipe.image}`}
+                <img src={`https://tak-cook-back.vercel.app${recipe.image}`}
                     alt={recipe.title}
                 />
                 <div className="classH">
