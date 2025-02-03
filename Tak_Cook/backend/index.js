@@ -1,3 +1,4 @@
+require ('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -10,9 +11,10 @@ app.use('/public', express.static(path.join(__dirname, '../public/image')));
 app.use('/image', express.static(path.join(__dirname, 'public', 'image')));
 
 const recipeRoutes = require('./routes/recipe')
+const CONNECTION_STRING = process.env.CONNECTION_STRING;
+console.log("🔍 CONNECTION_STRING:", process.env.CONNECTION_STRING);
 
-
-mongoose.connect("mongodb+srv://lamartitarek:GyPdhKZHehDHrgvk@cluster0.pjurict.mongodb.net/ECF_1")
+mongoose.connect(CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true, connectTimeoutMS: 2000 })
     .then(()=> {
         console.log('Tak Mongo is connected');
     }) .catch((error) =>{
